@@ -1,214 +1,211 @@
-# Plan de gestion de projet — Routeur de défense avec Honeypot + IA
+<!-- Hero + badges + visual README replacement -->
 
-Début : 16 novembre 2025  
-Fin prévue : 31 mai 2026  
-Durée : 6,5 mois
+<!-- New visually-appealing README content starts here -->
+<p align="center">
+  <!-- Inline simple SVG hero -->
+  <svg width="100%" height="140" viewBox="0 0 1200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:linear-gradient(90deg,#071023,#0b1220);border-radius:8px;">
+    <defs>
+      <linearGradient id="g" x1="0" x2="1">
+        <stop offset="0" stop-color="#00d2ff"/>
+        <stop offset="1" stop-color="#4b6ef6"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="140" fill="url(#g)" opacity="0.06"/>
+    <g transform="translate(24,18)">
+      <text x="0" y="40" fill="#e6eef8" font-size="28" font-weight="700" font-family="Inter, Arial">Routeur Défensif — Honeypot + IA</text>
+      <text x="0" y="72" fill="#c7d6ea" font-size="14" font-family="Inter, Arial">Prototype PFE — Détection, redirection & visualisation</text>
+    </g>
+  </svg>
+  <br/>
+  <!-- Badges for quick visual status -->
+  <img alt="Status" src="https://img.shields.io/badge/status-In%20progress-ffb020" />
+  <img alt="Timeline" src="https://img.shields.io/badge/timeline-Nov%202025–May%202026-4c9f70" />
+  <img alt="License" src="https://img.shields.io/badge/license-CC--BY--NC-blue" />
+</p>
+
+---
+
+# Plan de gestion de projet — Routeur de défense avec Honeypot + IA
+Début : 16 novembre 2025 • Fin prévue : 31 mai 2026 • Durée : 6,5 mois
 
 ---
 
 ## Vue d'ensemble
-Projet PFE visant à concevoir et implémenter un routeur défensif intégré à un honeypot et à de l'IA pour la détection et la mitigation d'attaques réseau.
+Projet PFE visant à concevoir et implémenter un routeur défensif intégré à un honeypot et à de l'IA pour détecter, bloquer et rediriger des attaques réseau tout en collectant des logs exploitables.
 
 ---
 
-## Phases détaillées
+## Quick Navigation
+- 🔎 Phases & tâches (collapsible)
+- 📊 Timeline & progression
+- 🧭 Prototype UI (local)
+- 📁 Organisation du repo & bonnes pratiques
 
-### Phase 1 — Cadrage & Étude (16 Nov → 15 Déc)
-Objectif : Définir clairement le projet, technologies, besoins et environnement.
+---
+
+## Phases détaillées (cliquez pour ouvrir)
+<details>
+<summary>🧱 Phase 1 — Cadrage & Étude (16 Nov → 15 Déc) — ✅</summary>
+
+**Objectif** : Définir le périmètre, technologies et architecture.
 
 Tâches
 - Lire & comprendre les exigences du PFE
 - Étude des attaques réseau : brute force, scans, SQLi, etc.
-- Choisir les datasets pour l’IA (CIC-IDS2017, UNSW-NB15, NSL-KDD…)
-- Définir l’architecture du routeur
-- Définir les machines virtuelles (déjà faites)
-- Choisir les outils IA (scikit-learn / PyTorch / TensorFlow)
-- Rédiger un document de conception préliminaire
+- Choisir les datasets (CIC-IDS2017, UNSW-NB15, NSL-KDD…)
+- Définir l’architecture du routeur & VM
+- Choisir outils IA (scikit-learn / PyTorch / TensorFlow)
+- Rédiger le cahier de conception préliminaire
 
 Livrables
-- [x] Cahier de conception préliminaire (10–15 pages)
-- [x] Architecture réseau + schéma
-- [x] Liste des outils & environnements retenus
+- ✅ Cahier de conception préliminaire (10–15 pages)  
+- ✅ Schéma d’architecture réseau  
+- ✅ Liste des outils & environnements
 
-Durée : 1 mois — Deadline interne : 15 Décembre 2025
+Progression : ▇▇▇▇▇▇▇▇▇▇ 100%
+</details>
 
----
-
-### Phase 2 — Mise en place des machines & infra (16 Déc → 15 Jan)
-Objectif : Préparer l’environnement virtuel pour le développement.
+<details>
+<summary>🧱 Phase 2 — Mise en place des machines & infra (16 Déc → 15 Jan) — ✅</summary>
 
 Tâches
-- Installer VMware + créer les 4 machines :
-  - Routeur : Parrot OS / Debian
-  - Honeypot : Ubuntu Server + Cowrie
-  - Victime : Ubuntu Server
-  - Attaquant : Kali (OS principal)
-- Configurer le réseau isolé VMnet2
-- Mettre en place les communications inter-VM
-- Préparer les outils (Python, pip, scapy, etc.)
+- Installer VMware + créer les 4 VMs (Routeur, Honeypot, Victime, Attaquant)
+- Configurer réseau isolé (VMnet2)
+- Installer outils (Python, scapy, etc.)
+- Tests ping/SSH
 
 Livrables
-- [x] Topologie réseau fonctionnelle
-- [x] VMs installées et testées
-- [x] Accès SSH + tests ping entre machines
+- ✅ Topologie réseau fonctionnelle  
+- ✅ VMs installées & testées
 
-Durée : 1 mois — Deadline interne : 15 Janvier 2026
+Progression : ▇▇▇▇▇▇▇▇▇▇ 100%
+</details>
 
----
-
-### Phase 3 — Collecte & Préparation des données IA (15 Jan → 20 Fév)
-Objectif : Construire un dataset pour entraîner la détection.
+<details>
+<summary>🧱 Phase 3 — Collecte & Préparation des données IA (15 Jan → 20 Fév) — ✅</summary>
 
 Tâches
-- Télécharger dataset public (CIC-IDS2017 ou UNSW-NB15)
-- Nettoyer, normaliser et préparer les features
-- Capturer des attaques dans le laboratoire (nmap, hydra…)
-- Mélanger données réelles + datasets publics
-- Diviser en train/test/validation
+- Télécharger dataset public
+- Nettoyer & normaliser features
+- Capturer attaques locales (nmap, hydra)
+- Mélanger données réelles + publiques
+- Split train/test/val
 
 Livrables
-- [x] Dataset propre (CSV, labellisé)
-- [x] Notebook `preprocessing.ipynb`
-- [x] Rapport de préparation des données
+- ✅ Dataset propre (CSV)
+- ✅ Notebook `preprocessing.ipynb`
 
-Durée : 1 mois — Deadline interne : 20 Février 2026
+Progression : ▇▇▇▇▇▇▇▇▇▇ 100%
+</details>
 
----
-
-### Phase 4 — Développement du modèle IA (20 Fév → 31 Mars)
-Objectif : Construire, entraîner, tester et sélectionner le meilleur modèle.
+<details>
+<summary>🧱 Phase 4 — Développement du modèle IA (20 Fév → 31 Mars) — ⚙️ 85%</summary>
 
 Tâches
-- Tester plusieurs modèles :
-  - RandomForest
-  - SVM
-  - XGBoost
-  - MLP (réseau de neurones léger)
-- Comparer accuracy / recall / F1-score
-- Choisir le meilleur modèle
-- Exporter le modèle en `.pkl`
-- Intégrer un script Python pour charger le modèle
+- Comparer modèles : RandomForest, SVM, XGBoost, MLP
+- Mesures : accuracy / recall / F1
+- Export modèle final `detector.pkl`
 
 Livrables
-- [x] Notebook `model_training.ipynb`
-- [x] Modèle final `detector.pkl`
-- [x] Rapport IA (méthode / résultats / métriques)
+- Notebook `model_training.ipynb`  
+- Modèle `detector.pkl`
 
-Durée : 1.5 mois — Deadline interne : 31 Mars 2026
+Progression : ▇▇▇▇▇▇▇▇▇▎ 85%
+</details>
 
----
-
-### Phase 5 — Implémentation du routeur défensif (1 Avr → 30 Avr)
-Objectif : Construire le cœur du projet.
+<details>
+<summary>🧱 Phase 5 — Implémentation du routeur défensif (1 Avr → 30 Avr) — ⚙️ 40%</summary>
 
 Tâches
-- Module de capture de trafic (Python + scapy)
-- Module de classification (chargement du modèle IA)
-- Module de décision (bloquer / rediriger)
-- Intégration avec iptables / nftables
-- Système de logs
-- Création API interne (FastAPI)
-- Tableau de bord web (React / Vue)
+- Capture trafic (scapy)  
+- Module classification (chargement `.pkl`)  
+- Module décision (iptables/nftables)  
+- API interne (FastAPI) + Dashboard (React/Vue)
 
-Livrables
-- [x] Routeur fonctionnel
-- [x] Dashboard web
-- [x] Documentation interne
-- [x] Démonstration interne
+Progression : ▇▇▇▎▁▁▁▁▁▁ 40%
+</details>
 
-Durée : 1 mois — Deadline interne : 30 Avril 2026
-
----
-
-### Phase 6 — Intégration du Honeypot (1 Avr → 15 Mai)
-Cette phase se fait en parallèle du développement du routeur.
+<details>
+<summary>🧱 Phase 6 — Intégration Honeypot (1 Avr → 15 Mai) — ⚙️ 30%</summary>
 
 Tâches
-- Déploiement Cowrie
-- Configuration des ports (SSH, Telnet)
-- Scripts de redirection automatique vers le honeypot
-- Collecte des logs
-- Envoi des logs vers le dashboard
+- Déploiement Cowrie, redirections, collecte logs
+- Envoi logs vers dashboard
 
-Livrables
-- [x] Honeypot opérationnel
-- [x] Redirection automatisée
-- [x] Logs exploitables pour analyse
+Progression : ▇▇▎▁▁▁▁▁▁▁ 30%
+</details>
 
-Durée : 2 semaines à 1 mois — Deadline interne : 15 Mai 2026
-
----
-
-### Phase 7 — Tests complets & Validation (10 Mai → 25 Mai)
-Objectif : Valider l’ensemble du système par des tests d’attaque.
+<details>
+<summary>🧱 Phase 7 — Tests complets & Validation (10 Mai → 25 Mai) — 🔬</summary>
 
 Tâches
-- Tests d’attaques :
-  - scan nmap
-  - brute-force hydra
-  - SQL injection
-  - port scanning agressif
-- Vérifier :
-  - détection par le modèle IA
-  - blocage / redirection
-  - capture des logs dans le honeypot
-- Mesurer performances et analyser faux positifs
+- Tests d’attaques (nmap, hydra, SQLi)
+- Vérifier détection / blocage / redirection
+- Mesurer performances & faux positifs
 
 Livrables
-- [x] Rapport de tests (captures d’écran, résultats)
-- [x] Tableau de performances
-- [x] Corrections finales
+- Rapport de tests & tableau de performances
+</details>
 
-Durée : 2 semaines — Deadline interne : 25 Mai 2026
-
----
-
-### Phase 8 — Rédaction & Soutenance (25 Mai → 5 Juin)
-Objectif : Livrer le PFE complet et préparer la soutenance.
+<details>
+<summary>🧱 Phase 8 — Rédaction & Soutenance (25 Mai → 5 Juin) — 🧾</summary>
 
 Tâches
-- Rédaction du rapport final (80–120 pages) :
-  - État de l’art
-  - Architecture
-  - Modèle IA
-  - Honeypot
-  - Tests & résultats
-- Préparer slides PowerPoint
-- Préparer démonstration en live
-
-Livrables
-- [x] Rapport final
-- [x] Sources
-- [x] Slides
-- [x] Vidéo / démo (optionnel)
+- Rapport final (80–120 pages)
+- Slides & démo
+</details>
 
 ---
 
-## Timeline visuelle (résumé)
-- Nov (fin)–Dec : Étude & Cadrage  
-- Dec–Jan : Infra + VMs  
-- Jan–Fév : Dataset IA  
-- Fév–Mars : Modèle IA  
-- Avril : Routeur IA + Dashboard  
-- Avril–Mai : Honeypot  
-- Mai : Tests & validation  
-- Fin Mai–Début Juin : Rapport + soutenance
+## Timeline visuelle & résumé
+| Mois | Phase principale |
+|---|---|
+| Nov (fin)–Dec | Étude & Cadrage |
+| Dec–Jan | Infra + VMs |
+| Jan–Fév | Dataset IA |
+| Fév–Mars | Modèle IA |
+| Avril | Routeur IA + Dashboard |
+| Avril–Mai | Honeypot |
+| Mai | Tests & validation |
+| Fin Mai–Début Juin | Rapport + soutenance |
 
 ---
 
-## IA — Calendrier recommandé
-- Jan–Fév : collecte et preprocessing dataset  
-- Fév–Mars : développement du modèle IA  
-- Avril : intégration du modèle dans le routeur  
-- Mai : tests d’attaques + validation IA
+## Visual Progress (emoji bars)
+- Phase 1: ██████████ 100%  
+- Phase 2: ██████████ 100%  
+- Phase 3: ██████████ 100%  
+- Phase 4: ████████▎ 85%  
+- Phase 5: ███▎ 40%  
+- Phase 6: ███▎ 30%
+
+---
+
+## Prototype UI — Dashboard (local)
+Un prototype d'interface (HTML/CSS/JS) est fourni dans `dashboard/`. Ouvrir localement :
+- Ouvrir : dashboard/index.html dans un navigateur moderne
+- Contient animations, thèmes, cartes interactives
+
+Lien local : c:\Users\hp\Desktop\Implementation-of-an-intelligent-defense-router-with-an-integrated-honeypot\dashboard\index.html
+
+---
+
+## Organisation recommandée du repo
+- docs/ — conception, schémas, rapports
+- notebooks/ — preprocessing.ipynb, model_training.ipynb
+- models/ — detector.pkl
+- dashboard/ — prototype UI (index.html, styles.css, app.js)
+- scripts/ — déploiement, captures, tests
 
 ---
 
 ## Remarques & bonnes pratiques
-- Versionner documents (docs/, notebooks/, models/) dans le repo.  
-- Automatiser captures et tests via scripts reproducibles.  
-- Documenter commandes d’installation des VMs et topologie réseau.  
-- Prévoir sauvegarde et anonymisation des logs si nécessaires.
+- Versionner tous les notebooks et modèles (utiliser .gitignore pour gros fichiers si nécessaire).  
+- Automatiser captures et tests (scripts reproducibles).  
+- Documenter commandes VM & topologie.  
+- Anonymiser logs sensibles.
 
---- 
+---
+
+<p align="center">Made with ❤️ — keep UI ideas in `dashboard/` for the full interactive preview.</p>
 
