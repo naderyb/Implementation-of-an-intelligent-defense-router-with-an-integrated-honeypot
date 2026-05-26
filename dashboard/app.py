@@ -1,7 +1,10 @@
-from flask import Flask, render_template, send_file, jsonify
-from cowrie_parser import read_cowrie_logs
-from dvwa_parser import read_logs as read_dvwa
+from flask import Flask, render_template, send_file, jsonify, request
+from dashboard.cowrie_parser import read_cowrie_logs
+from dashboard.dvwa_parser import read_logs as read_dvwa
 import io, json, csv, os
+import threading
+from dashboard.cache import real_ip_cache, cache_lock,latest_real_ip_lock
+import dashboard.cache as cache
 
 app = Flask(__name__)
 
@@ -57,5 +60,15 @@ def flush_dvwa():
         return jsonify({"status": "ok", "message": "DVWA logs flushed"})
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route ("/api/attack", methods=["POST"])
+def receive_attack():
+    data = request.get_json(force=True, silent=True)
+    print(data)
+    if not data:
+        return jsonify({"error": "bad json"}), 400
+    with cache.latest_real_ip_lock:
+        cache.latest_real_ip = data["real_ip"]
+    return jsonify({"status": "ok"})
 
 app.run(host="0.0.0.0", port=5000, debug=False)

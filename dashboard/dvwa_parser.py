@@ -1,4 +1,6 @@
 import re
+import dashboard.cache as cache
+from datetime import datetime, timedelta
 
 LOG_FILE = "/var/log/apache2/access.log"
 
@@ -22,11 +24,16 @@ def classify(line):
 def parse_line(line):
 	parts = line.split(" ")
 	ip = parts[0]
-	time = parts[3][1:]
+	raw_time = parts[3][1:]
 	request = " ".join(parts[5:8]).replace("'",'')
 	event = classify(line)
+	try:
+		dt = datetime.strptime(raw_time, "%d/%b/%Y:%H:%M:%S")
+		time = (dt + timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:%S")
+	except:
+		time = raw_time
 	return{
-	"ip": ip,
+	"ip": cache.latest_real_ip if cache.latest_real_ip else ip,
 	"time": time,
 	"event": event,
 	"request": request,

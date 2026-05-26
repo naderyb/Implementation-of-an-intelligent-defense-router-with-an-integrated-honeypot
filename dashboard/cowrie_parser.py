@@ -1,6 +1,17 @@
 import json
+from datetime import datetime, timezone, timedelta
+from dashboard.cache import real_ip_cache, cache_lock
+import dashboard.cache as cache
 
 LOG_FILE = "/home/narie/cowrie/var/log/cowrie/cowrie.json"
+
+def get_real_ip(fallback):
+    with cache.latest_real_ip_lock:
+        #check +-5 sec window
+        if cache.latest_real_ip:
+            return cache.latest_real_ip
+
+    return fallback
 
 def read_cowrie_logs():
     attacks = []
@@ -21,8 +32,8 @@ def read_cowrie_logs():
                     "cowrie.command.input"
                 ]:
                     attacks.append({
-                        "time": data.get("timestamp", "-"),
-                        "ip": data.get("src_ip"),
+                        "time": (datetime.fromisoformat(data.get("timestamp","").replace("Z","+00:00")) + timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:%S") if data.get("timestamp") else "-",
+                        "ip": get_real_ip(data.get("src_ip")),
                         "username": data.get("username", "-"),
                         "password": data.get("password", "-"),
                         "command": data.get("input", "-"),
