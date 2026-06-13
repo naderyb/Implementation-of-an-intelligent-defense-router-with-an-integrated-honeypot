@@ -12,7 +12,7 @@
 ---
 
 ## SLIDE 1 — Page de titre
-### 🟦 NADER *(~1 min)*
+### 🟧 marie *(~1 min)*
 
 Bonjour à tous.
 
@@ -29,7 +29,7 @@ C'est exactement ce qu'on va vous expliquer aujourd'hui.
 ---
 
 ## SLIDE 2 — Introduction
-### 🟦 NADER *(~1 min 30)*
+### 🟧 marie *(~1 min 30)*
 
 Depuis quelques années, les attaques informatiques évoluent très vite. Elles deviennent plus sophistiquées, plus ciblées, et les solutions classiques — les firewalls, les antivirus — peinent à suivre.
 
@@ -38,12 +38,12 @@ On s'est posé une question simple : est-ce qu'on peut faire mieux ? Est-ce qu'o
 C'est cette question qui a donné naissance à HoneyNet.
 
 🔄 *[Nader regarde Mariya]*
-Justement Mariya, avant d'aller plus loin, est-ce que tu peux nous expliquer rapidement ce que ça veut dire concrètement ?
+Justement nader, avant d'aller plus loin, est-ce que tu peux nous expliquer rapidement ce que ça veut dire concrètement ?
 
 ---
 
 ## SLIDE 3 — Plan de la présentation
-### 🟧 MARIYA *(~1 min)*
+### 🟦 nader *(~1 min)*
 
 Bien sûr Nader.
 
@@ -56,7 +56,7 @@ Allez, on commence !
 ---
 
 ## SLIDE 4 — Composants majeurs (Définitions)
-### 🟧 MARIYA *(~2 min)*
+### 🟦 nader *(~2 min)*
 
 Notre système repose sur trois composants principaux.
 
@@ -67,14 +67,14 @@ Le deuxième, c'est le **honeypot** — littéralement "le pot de miel". C'est u
 Et le troisième, c'est l'**IA** — l'intelligence artificielle. C'est le cerveau du système. Elle analyse les données en temps réel et prend les décisions automatiquement.
 
 🔄 *[Mariya fait une pause, sourit]*
-Ces trois composants, seuls, c'est bien. Mais ensemble ? C'est là où ça devient vraiment intéressant. Nader, tu veux bien nous montrer comment ils s'assemblent ?
+Ces trois composants, seuls, c'est bien. Mais ensemble ? C'est là où ça devient vraiment intéressant. marie, tu veux bien nous montrer comment ils s'assemblent ?
 
 ---
 
 ## SLIDE 5 — Vue d'ensemble (illustration pixel art)
-### 🟦 NADER *(~1 min 30)*
+### 🟧 marie *(~1 min 30)*
 
-Merci Mariya.
+Merci nader.
 
 Ce schéma résume tout le flux de notre système.
 
@@ -87,7 +87,7 @@ L'attaquant, lui ? Il croit avoir trouvé un vrai serveur. Mais il est dans notr
 ---
 
 ## SLIDE 6 — Vue d'ensemble (détail des 3 blocs)
-### 🟦 NADER *(~1 min 30)*
+### 🟧 marie *(~1 min 30)*
 
 Pour être encore plus précis, voici les trois blocs du système :
 
@@ -97,13 +97,13 @@ Pour être encore plus précis, voici les trois blocs du système :
 
 **Le moniteur** — c'est le dashboard. Une interface visuelle qui affiche tout ce qui se passe en temps réel.
 
-🔄 *[Nader s'arrête un instant]*
-On va maintenant rentrer dans les détails. Mariya, tu veux bien nous parler des honeypots qu'on a choisis ?
+🔄 *[marie s'arrête un instant]*
+On va maintenant rentrer dans les détails. nader, tu veux bien nous parler des honeypots qu'on a choisis ?
 
 ---
 
 ## SLIDE 7 — Les Honeypots
-### 🟧 MARIYA *(~2 min)*
+### 🟦 nader *(~2 min)*
 
 Oui, avec plaisir.
 
@@ -114,9 +114,6 @@ Le premier c'est **Cowrie**. C'est un honeypot SSH — il simule un accès termi
 Le deuxième c'est **DVWA** — Damn Vulnerable Web Application. C'est une application web intentionnellement vulnérable, qui tourne sur le port 80 avec Apache et MySQL. Elle est conçue pour attirer les attaques web comme les injections SQL.
 
 Ces deux honeypots couvrent les deux types d'attaques les plus courants : les attaques réseau et les attaques web.
-
-🔄 *[Mariya marque une pause]*
-Pour que ces honeypots soient utiles, il faut que l'IA sache vers lequel rediriger. Et là, ça implique un modèle entraîné sur des vraies données. Nader, le dataset ?
 
 ---
 
@@ -136,7 +133,7 @@ Concrètement, ça veut dire que plus le système voit d'attaques, plus il devie
 ---
 
 ## SLIDE 9 — Intelligence artificielle (tableau comparatif)
-### 🟦 NADER *(~2 min)*
+### 🟧 marie *(~2 min)*
 
 On a testé plusieurs modèles pour trouver le meilleur.
 
@@ -144,15 +141,15 @@ On voit ici que le Random Forest fait 100% de précision — mais c'est trop bea
 
 Le gagnant ? Le **SGDClassifier**. Il atteint **99.84%** de précision avec un F1-Score de 0.9983, et s'entraîne en seulement **0.85 secondes**. C'est rapide, précis, et léger — parfait pour un système temps réel.
 
-🔄 *[Nader incline légèrement la tête vers Mariya]*
-Et maintenant qu'on a notre cerveau, voyons comment tout ça tourne dans le routeur. Mariya ?
+🔄 *[marie incline légèrement la tête vers Mariya]*
+Et maintenant qu'on a notre cerveau, voyons comment tout ça tourne dans le routeur. nader ?
 
 ---
 
 ## SLIDE 10 — ai_router.py (le cœur du système)
-### 🟧 MARIYA *(~2 min 30)*
+### 🟦 nader *(~2 min 30)*
 
-Merci Nader.
+Merci marie.
 
 Voici le schéma du script principal — **ai_router.py**. C'est le cœur de tout le système.
 
@@ -171,7 +168,7 @@ Tout ça, sans aucune intervention humaine.
 ---
 
 ## SLIDE 11 — Défi Technique
-### 🟧 MARIYA *(~2 min)*
+### 🟦 Nader *(~2 min)*
 
 On a rencontré un problème technique intéressant, et je veux vous en parler parce qu'on en est plutôt fiers.
 
@@ -183,11 +180,10 @@ Résultat : le dashboard affiche la vraie IP de l'attaquant — dans notre cas, 
 
 🔄 *[Mariya sourit, avec un air de "on a trouvé un hack propre"]*
 Et ce dashboard justement, Nader, montre-nous ce qu'on voit dessus.
-
 ---
 
 ## SLIDE 12 — Tableau de bord
-### 🟦 NADER *(~2 min)*
+### 🟧 marie *(~2 min)*
 
 Le tableau de bord, c'est la fenêtre sur tout ce qui se passe dans le système.
 
@@ -205,7 +201,7 @@ C'est une interface pensée pour un analyste de sécurité — claire, rapide, e
 ---
 
 ## SLIDE 13 — Dépôt GitHub
-### 🟦 NADER *(~1 min)*
+### 🟧 mariya *(~1 min)*
 
 Tout le code source est disponible sur GitHub.
 
@@ -213,10 +209,11 @@ Le dépôt est organisé proprement : le dossier `ai_config_for_router` pour le 
 
 Tout est documenté dans le README pour qu'on puisse cloner et déployer la solution rapidement sur n'importe quel environnement virtuel.
 
+ [marie] nader je te laisse presenter la demonstration
 ---
 
 ## SLIDE 14 — Démonstration
-### 🟧 MARIYA *(~2 min)*
+### 🟦 nader *(~2 min)*
 
 On va maintenant vous faire une petite démonstration.
 
@@ -262,7 +259,7 @@ Et avec ça, je cède la parole à Mariya pour les derniers mots.
 ---
 
 ## MOT DE FIN
-### 🟧 MARIYA *(~30 sec)*
+### 🟦 nader *(~30 sec)*
 
 HoneyNet n'est pas juste un projet académique. C'est une vraie solution, conçue avec des outils réels, testée avec de vraies attaques.
 
