@@ -16,9 +16,9 @@
 
 Bonjour à tous.
 
-Monsieur le jury, monsieur l'encadrant, permettez-nous de vous présenter notre projet de fin d'études.
+Messieurs les jury, monsieur l'encadrant, nos invités, permettez-nous de vous présenter notre projet de fin d'études.
 
-Nous nous appelons Nader et Mariya, et ensemble on forme… le binôme du binaire.
+je me presente djouaher mariya et voila mon binome youb mahmoud nader, et ensemble on forme… le binôme du binaire.
 
 Notre projet s'appelle **HoneyNet** — un routeur intelligent avec des honeypots intégrés.
 
@@ -37,8 +37,7 @@ On s'est posé une question simple : est-ce qu'on peut faire mieux ? Est-ce qu'o
 
 C'est cette question qui a donné naissance à HoneyNet.
 
-🔄 *[Nader regarde Mariya]*
-Justement nader, avant d'aller plus loin, est-ce que tu peux nous expliquer rapidement ce que ça veut dire concrètement ?
+🔄* Justement Nader, avant d'entrer dans le vif du sujet... tu peux nous dire rapidement comment on va structurer tout ça ? *
 
 ---
 
@@ -55,41 +54,57 @@ Allez, on commence !
 
 ---
 
-## SLIDE 4 — Composants majeurs (Définitions)
-### 🟦 nader *(~2 min)*
-
-Notre système repose sur trois composants principaux.
-
-Le premier, c'est le **routeur**. Imaginez-le comme un agent de sécurité à l'entrée d'un bâtiment. Il analyse chaque connexion qui arrive et décide quoi en faire.
-
-Le deuxième, c'est le **honeypot** — littéralement "le pot de miel". C'est un faux serveur qu'on met en place exprès pour attirer les attaquants. On leur tend un piège, et une fois dedans, on observe tout ce qu'ils font, sans jamais exposer nos vraies ressources.
-
-Et le troisième, c'est l'**IA** — l'intelligence artificielle. C'est le cerveau du système. Elle analyse les données en temps réel et prend les décisions automatiquement.
-
-🔄 *[Mariya fait une pause, sourit]*
-Ces trois composants, seuls, c'est bien. Mais ensemble ? C'est là où ça devient vraiment intéressant. marie, tu veux bien nous montrer comment ils s'assemblent ?
+## SLIDE 4 — Cyber Attaques
+### 🟦 NADER *(~2 min)*
+ 
+Mais d'abord — qu'est-ce qu'on cherche à combattre exactement ?
+ 
+On a ciblé **quatre types d'attaques** très courants.
+ 
+Le **Brute Force** : l'attaquant essaie des centaines, voire des milliers de combinaisons de mots de passe jusqu'à en trouver un qui marche. C'est simple, mais redoutablement efficace.
+ 
+Le **DDoS** : il envoie une quantité massive de requêtes pour saturer complètement le serveur. Résultat — le serveur tombe, personne ne peut y accéder.
+ 
+L'**attaque SSH** : il essaie de prendre le contrôle d'une machine à distance, via un protocole réseau normalement utilisé par les administrateurs.
+ 
+Et enfin le **SQL Injection** : il glisse des commandes malveillantes dans un formulaire web pour manipuler la base de données — voler des données, les supprimer, ou pire.
+ 
+---
+## SLIDE 5 — Composants majeurs
+### 🟦 NADER *(~2 min)*
+ 
+Notre système repose sur **trois composants** qui travaillent ensemble.
+ 
+Le premier, c'est **le Routeur**.
+Imaginez-le comme un agent de sécurité à l'entrée d'un bâtiment.
+Il voit tout ce qui rentre, il analyse, et il décide quoi faire.
+ 
+Le deuxième, c'est **le Honeypot** — littéralement, *le pot de miel*.
+C'est un faux serveur qu'on met en place exprès pour **attirer** les attaquants.
+On leur tend un piège... et une fois dedans, on observe tout ce qu'ils font — sans jamais exposer nos vraies ressources.
+ 
+Et le troisième, c'est **l'Intelligence Artificielle**.
+C'est le cerveau du système. Elle analyse les données en temps réel et prend les décisions **automatiquement**.
 
 ---
-
-## SLIDE 5 — Vue d'ensemble (illustration pixel art)
+ 
+🔄 *[Nader se tourne vers Mariya avec enthousiasme]*
+ 
+Ces trois composants seuls, c'est bien. Mais ensemble ? C'est là où ça devient vraiment intéressant !
+Mariya, tu veux bien nous montrer comment ils s'assemblent ?
+ 
+---
+## SLIDE 6 — Vue d'ensemble (illustration pixel art)
 ### 🟧 marie *(~1 min 30)*
 
 Merci nader.
 
-Ce schéma résume tout le flux de notre système.
-
-Quand un attaquant arrive sur le réseau, le routeur capture et analyse son trafic. L'IA classe le type d'attaque. Et selon ce que l'IA décide, le trafic est redirigé vers le bon honeypot — soit Cowrie pour les attaques SSH, soit DVWA pour les attaques web.
-
-Pendant tout ce temps, le tableau de bord enregistre tout en temps réel.
-
-L'attaquant, lui ? Il croit avoir trouvé un vrai serveur. Mais il est dans notre piège.
-
 ---
 
-## SLIDE 6 — Vue d'ensemble (détail des 3 blocs)
+## SLIDE 7 — Vue d'ensemble (détail des 3 blocs)
 ### 🟧 marie *(~1 min 30)*
 
-Pour être encore plus précis, voici les trois blocs du système :
+Pour être encore plus précise, voici les trois blocs du système :
 
 **Le cerveau** — c'est le routeur intelligent. Il analyse le trafic en continu, apprend les comportements suspects et identifie le type d'attaque.
 
@@ -102,7 +117,7 @@ On va maintenant rentrer dans les détails. nader, tu veux bien nous parler des 
 
 ---
 
-## SLIDE 7 — Les Honeypots
+## SLIDE 8 — Les Honeypots
 ### 🟦 nader *(~2 min)*
 
 Oui, avec plaisir.
@@ -131,27 +146,27 @@ Et surtout, on est passés d'une solution **statique** — des règles fixes —
 Concrètement, ça veut dire que plus le système voit d'attaques, plus il devient précis.
 
 ---
+🔄 *[Nader fait un geste vers Mariya]*
+ 
+Mais marie le dataset? concretement il sert a quoi?
 
 ## SLIDE 9 — Intelligence artificielle (tableau comparatif)
 ### 🟧 marie *(~2 min)*
-
-On a testé plusieurs modèles pour trouver le meilleur.
+on utilise le dataset pour entrainer les model de ML et on a testé plusieurs modèles pour trouver le meilleur.
 
 On voit ici que le Random Forest fait 100% de précision — mais c'est trop beau pour être vrai, c'est de l'overfitting. Le Gradient Boosting est presque parfait aussi, mais il met 462 secondes à s'entraîner — beaucoup trop lent pour notre cas.
 
 Le gagnant ? Le **SGDClassifier**. Il atteint **99.84%** de précision avec un F1-Score de 0.9983, et s'entraîne en seulement **0.85 secondes**. C'est rapide, précis, et léger — parfait pour un système temps réel.
 
 🔄 *[marie incline légèrement la tête vers Mariya]*
-Et maintenant qu'on a notre cerveau, voyons comment tout ça tourne dans le routeur. nader ?
+Et maintenant qu'on a notre cerveau, voyons comment tout ça tourne dans le routeur.
 
 ---
 
-## SLIDE 10 — ai_router.py (le cœur du système)
-### 🟦 nader *(~2 min 30)*
+## SLIDE 11 — ai_router.py (le cœur du système)
+### 🟦 mariya *(~2 min 30)*
 
-Merci marie.
-
-Voici le schéma du script principal — **ai_router.py**. C'est le cœur de tout le système.
+Voici le schéma du script principal . C'est le cœur de tout le système.
 
 Il fonctionne en 4 étapes.
 
@@ -163,11 +178,11 @@ Il fonctionne en 4 étapes.
 
 **Étape 4 — La redirection dynamique** : selon le verdict de l'IA, une règle DNAT est injectée automatiquement — soit vers Cowrie sur le port 2222, soit vers DVWA sur le port 80.
 
-Tout ça, sans aucune intervention humaine.
+Tout ça, sans aucune intervention humaine. sauf pour un defis qu'on a rencontré, nader tu veux bien nous en parler?
 
 ---
 
-## SLIDE 11 — Défi Technique
+## SLIDE 12 — Défi Technique
 ### 🟦 Nader *(~2 min)*
 
 On a rencontré un problème technique intéressant, et je veux vous en parler parce qu'on en est plutôt fiers.
@@ -179,7 +194,7 @@ Notre solution ? On a ajouté une **règle LOG** qui capture le paquet SYN initi
 Résultat : le dashboard affiche la vraie IP de l'attaquant — dans notre cas, 192.168.244.137 — correctement.
 
 🔄 *[Mariya sourit, avec un air de "on a trouvé un hack propre"]*
-Et ce dashboard justement, Nader, montre-nous ce qu'on voit dessus.
+Et ce dashboard justement, marie, on voit quoi dessus?
 ---
 
 ## SLIDE 12 — Tableau de bord
@@ -243,6 +258,8 @@ Trois mots résument ce qu'on a accompli :
 **Transparence** — chaque attaque est tracée, documentée, exportable. C'est ce qu'on appelle de la Cyber Threat Intelligence — une vraie valeur pour n'importe quelle organisation.
 
 ---
+## SLIDE 17 — Compétences acquises
+### 🟦 nader *(~1 min)*
 
 ## SLIDE 16 — Limites & Perspectives
 ### 🟦 NADER *(~1 min 30)*
@@ -262,8 +279,6 @@ Et avec ça, je cède la parole à Mariya pour les derniers mots.
 ### 🟦 nader *(~30 sec)*
 
 HoneyNet n'est pas juste un projet académique. C'est une vraie solution, conçue avec des outils réels, testée avec de vraies attaques.
-
-On tient à remercier Monsieur Boukabou pour son encadrement tout au long de ce projet.
 
 Merci à vous pour votre attention, et on est prêts pour vos questions.
 
